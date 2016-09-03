@@ -2,7 +2,7 @@ $('button').on('click', function() {
 
     var giphy = $(this).data('giphy');
 
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=dc6zaTOxFJmzC&limit=10";;
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=dc6zaTOxFJmzC&limit=10";;
 
     $.ajax({
             url: queryURL,
@@ -45,7 +45,7 @@ $('button').on('click', function() {
 
 
 
-            //end of for loop
+                //end of for loop
             }
             //event listener when image is clicked on
             $('.giphyClass').on('click', function() {
@@ -54,18 +54,26 @@ $('button').on('click', function() {
 
                 //insert logic for pausing gif
                 if (state == 'animate') {
-                    
+
                     $(this).attr('src', $(this).attr('data-still'));
                     $(this).attr('data-state', 'still');
 
                 } else {
-                    
+
                     $(this).attr('src', $(this).attr('data-animate'));
                     $(this).attr('data-state', 'animate');
                 }
-            //end of pausing function
+                //end of pausing function
             });
+            
+            // This function handles events where one button is clicked
+            $('#addGiphy').on('click', function() {
 
+                // This line of code will grab the input from the textbox
+                var newGiphy = $('#giphy-input').val().trim();
+
+            });
+            
             //end of done function
         });
 
